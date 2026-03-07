@@ -7,7 +7,7 @@ license = "Insert License Here"
 modId = "cms"
 version = "${version}"
 displayName = "Create More Seats"
-authors = "Me!"
+authors = "ProgrammerLP"
 description = '''
 This is an example description! Tell everyone what your mod is about!
 '''
@@ -33,3 +33,10 @@ mandatory = true
 versionRange = "[9.2.14,)"
 ordering = "AFTER"
 side = "BOTH"
+
+[[dependencies.cms]]
+modId="create"
+mandatory=true
+versionRange="[6.0.7,]"
+ordering="NONE"
+side="BOTH"

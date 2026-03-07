@@ -5,7 +5,7 @@
   "name": "Create More Seats",
   "description": "This is an example description! Tell everyone what your mod is about!",
   "authors": [
-    "Me!"
+    "ProgrammerLP"
   ],
   "contact": {
     "homepage": "https://fabricmc.net/",
@@ -16,10 +16,10 @@
   "environment": "*",
   "entrypoints": {
     "main": [
-      "net.adeptstack.fabric.ExampleModFabric"
+      "net.adeptstack.fabric.CMSModFabric"
     ],
     "client": [
-      "net.adeptstack.fabric.client.ExampleModFabricClient"
+      "net.adeptstack.fabric.client.CMSModFabricClient"
     ]
   },
   "mixins": [

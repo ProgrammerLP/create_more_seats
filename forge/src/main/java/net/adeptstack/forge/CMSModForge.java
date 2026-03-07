@@ -4,16 +4,16 @@ import dev.architectury.platform.forge.EventBuses;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 
-import net.adeptstack.ExampleMod;
+import net.adeptstack.CMSMod;
 
 @SuppressWarnings("removal")
-@Mod(ExampleMod.MOD_ID)
-public final class ExampleModForge {
-    public ExampleModForge() {
+@Mod(CMSMod.MOD_ID)
+public final class CMSModForge {
+    public CMSModForge() {
         // Submit our event bus to let Architectury API register our content on the right time.
-        EventBuses.registerModEventBus(ExampleMod.MOD_ID, FMLJavaModLoadingContext.get().getModEventBus());
+        EventBuses.registerModEventBus(CMSMod.MOD_ID, FMLJavaModLoadingContext.get().getModEventBus());
 
         // Run our common setup.
-        ExampleMod.init();
+        CMSMod.init();
     }
 }
