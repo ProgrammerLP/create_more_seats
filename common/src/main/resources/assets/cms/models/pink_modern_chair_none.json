@@ -2,8 +2,8 @@
 	"credit": "Made with Blockbench",
 	"ambientocclusion": false,
 	"textures": {
-		"top": "interiors:block/modern_chair/top_pink",
-		"side": "interiors:block/modern_chair/side_pink"
+		"top": "cms:block/modern_chair/top_pink",
+		"side": "cms:block/modern_chair/side_pink"
 	},
 	"elements": [
 		{
