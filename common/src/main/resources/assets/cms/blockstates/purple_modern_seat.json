@@ -1,0 +1,12 @@
+﻿{
+  "variants": {
+    "facing=north,waterlogged=false": { "model": "cms:block/purple_modern_chair_none" },
+    "facing=south,waterlogged=false": { "model": "cms:block/purple_modern_chair_none", "y": 180 },
+    "facing=west,waterlogged=false": { "model": "cms:block/purple_modern_chair_none", "y": 270 },
+    "facing=east,waterlogged=false": { "model": "cms:block/purple_modern_chair_none", "y": 90 },
+    "facing=north,waterlogged=true": { "model": "cms:block/purple_modern_chair_none" },
+    "facing=south,waterlogged=true": { "model": "cms:block/purple_modern_chair_none", "y": 180 },
+    "facing=west,waterlogged=true": { "model": "cms:block/purple_modern_chair_none", "y": 270 },
+    "facing=east,waterlogged=true": { "model": "cms:block/purple_modern_chair_none", "y": 90 }
+  }
+}
