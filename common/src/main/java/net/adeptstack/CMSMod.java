@@ -13,6 +13,23 @@ public final class CMSMod {
         CMSTabs.CREATIVE_MODE_TABS.register();
         CMSEntities.register();
         CMSBlocks.register();
-        REGISTRATE.register();
+
+        try {
+            Class<?> clazz = REGISTRATE.getClass();
+            java.lang.reflect.Method registerMethod = null;
+            while (clazz != null) {
+                try {
+                    registerMethod = clazz.getDeclaredMethod("register");
+                    break;
+                } catch (NoSuchMethodException ignored) {}
+                clazz = clazz.getSuperclass();
+            }
+            if (registerMethod != null) {
+                registerMethod.setAccessible(true);
+                registerMethod.invoke(REGISTRATE);
+            }
+        } catch (Exception e) {
+            throw new RuntimeException("Failed to register CreateRegistrate via reflection", e);
+        }
     }
 }
