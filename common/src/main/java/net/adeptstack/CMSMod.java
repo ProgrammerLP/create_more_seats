@@ -1,12 +1,18 @@
 package net.adeptstack;
 
 import com.simibubi.create.foundation.data.CreateRegistrate;
+import net.adeptstack.cms.registry.CMSBlocks;
+import net.adeptstack.cms.registry.CMSEntities;
+import net.adeptstack.cms.registry.CMSTabs;
 
 public final class CMSMod {
     public static final String MOD_ID = "cms";
     public static final CreateRegistrate REGISTRATE = CreateRegistrate.create(MOD_ID);
 
     public static void init() {
-        // Write common init code here.
+        CMSTabs.CREATIVE_MODE_TABS.register();
+        CMSEntities.register();
+        CMSBlocks.register();
+        REGISTRATE.register();
     }
 }
