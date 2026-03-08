@@ -1,37 +1,29 @@
 package net.adeptstack.cms.registry;
 
-import com.simibubi.create.AllBlocks;
-import com.simibubi.create.AllDisplaySources;
 import com.simibubi.create.AllTags;
 import com.simibubi.create.content.contraptions.actors.seat.SeatInteractionBehaviour;
 import com.simibubi.create.content.contraptions.actors.seat.SeatMovementBehaviour;
-import com.simibubi.create.foundation.block.DyedBlockList;
 import com.simibubi.create.foundation.data.SharedProperties;
 import com.simibubi.create.foundation.item.ItemDescription;
 import com.tterrag.registrate.builders.BlockBuilder;
 import com.tterrag.registrate.util.entry.BlockEntry;
 import com.tterrag.registrate.util.nullness.NonNullUnaryOperator;
-import net.adeptstack.cms.blocks.ModernSeatBlock;
+import net.adeptstack.cms.blocks.FlatModernSeatBlock;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.core.registries.Registries;
-import net.minecraft.tags.BlockTags;
-import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.DyeColor;
-import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.material.MapColor;
 
-import static com.simibubi.create.api.behaviour.display.DisplaySource.displaySource;
 import static com.simibubi.create.api.behaviour.interaction.MovingInteractionBehaviour.interactionBehaviour;
 import static com.simibubi.create.api.behaviour.movement.MovementBehaviour.movementBehaviour;
-import static com.simibubi.create.content.decoration.slidingDoor.SlidingDoorBlock.GLASS_SET_TYPE;
 import static com.simibubi.create.foundation.data.TagGen.pickaxeOnly;
 import static net.adeptstack.CMSMod.REGISTRATE;
 
 public class CMSBuilderTransformer {
 
-    public static <B extends ModernSeatBlock, P> NonNullUnaryOperator<BlockBuilder<B, P>> modernSeatBlock() {
+    public static <B extends FlatModernSeatBlock, P> NonNullUnaryOperator<BlockBuilder<B, P>> modernSeatBlock() {
         return b -> b.initialProperties(SharedProperties::softMetal)
                 .properties(p -> p.strength(3.0F, 6.0F))
                 .transform(pickaxeOnly())
@@ -45,8 +37,8 @@ public class CMSBuilderTransformer {
                 .build();
     }
 
-    public static BlockEntry<ModernSeatBlock> ModernSeatBlock (MapColor colour, DyeColor color) {
-        return REGISTRATE.block(color.getSerializedName() + "_modern_seat", p -> new ModernSeatBlock(p, color))
+    public static BlockEntry<FlatModernSeatBlock> ModernSeatBlock (MapColor colour, DyeColor color) {
+        return REGISTRATE.block(color.getSerializedName() + "_modern_seat", p -> new FlatModernSeatBlock(p, color))
                 .initialProperties(SharedProperties::softMetal)
                 .properties(p -> p.sound(SoundType.METAL).mapColor(colour))
                 .addLayer(() -> RenderType::translucent)

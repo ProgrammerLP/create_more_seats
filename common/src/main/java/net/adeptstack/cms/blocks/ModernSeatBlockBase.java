@@ -18,11 +18,11 @@ import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
-public class ModernSeatBlock extends DirectionalSeatBlock implements ProperWaterloggedBlock {
+public abstract class ModernSeatBlockBase extends DirectionalSeatBlock implements ProperWaterloggedBlock {
     private static final VoxelShape SHAPE = Shapes.or(Block.box(0, 5, 0, 16, 13, 16), Block.box(0, 0, 4, 16, 5, 12));
     protected final DyeColor color;
 
-    public ModernSeatBlock(Properties properties, DyeColor color) {
+    public ModernSeatBlockBase(Properties properties, DyeColor color) {
         super(properties, color);
         this.color = color;
         registerDefaultState(defaultBlockState().setValue(WATERLOGGED, false));
@@ -39,9 +39,7 @@ public class ModernSeatBlock extends DirectionalSeatBlock implements ProperWater
     }
 
 
-    public VoxelShape shape() {
-        return SHAPE;
-    }
+    public abstract VoxelShape shape();
 
     @Override
     public void updateEntityAfterFallOn(BlockGetter reader, Entity entity) {
