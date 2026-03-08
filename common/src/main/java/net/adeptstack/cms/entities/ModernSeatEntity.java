@@ -4,6 +4,7 @@ import com.simibubi.create.content.contraptions.actors.seat.SeatEntity;
 import net.minecraft.client.renderer.culling.Frustum;
 import net.minecraft.client.renderer.entity.EntityRenderer;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
+import net.minecraft.core.BlockPos;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
@@ -15,7 +16,7 @@ public class ModernSeatEntity extends SeatEntity {
         super(type, world);
     }
 
-    public ModernSeatEntity(Level world, net.minecraft.core.BlockPos pos) {
+    public ModernSeatEntity(Level world, BlockPos pos) {
         super(world, pos);
     }
 

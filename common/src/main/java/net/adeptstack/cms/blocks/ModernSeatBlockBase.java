@@ -2,30 +2,58 @@ package net.adeptstack.cms.blocks;
 
 import com.simibubi.create.foundation.block.ProperWaterloggedBlock;
 import net.adeptstack.cms.Utils;
+import net.adeptstack.cms.registry.CMSBlocks;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.world.InteractionHand;
+import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.DyeColor;
+import net.minecraft.world.item.DyeItem;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
+import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
+import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.phys.shapes.CollisionContext;
-import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
 public abstract class ModernSeatBlockBase extends DirectionalSeatBlock implements ProperWaterloggedBlock {
-    private static final VoxelShape SHAPE = Shapes.or(Block.box(0, 5, 0, 16, 13, 16), Block.box(0, 0, 4, 16, 5, 12));
     protected final DyeColor color;
 
     public ModernSeatBlockBase(Properties properties, DyeColor color) {
         super(properties, color);
         this.color = color;
         registerDefaultState(defaultBlockState().setValue(WATERLOGGED, false));
+    }
+
+    @Override
+    public InteractionResult use(BlockState state, Level world, BlockPos pos, Player player, InteractionHand hand, BlockHitResult result) {
+        ItemStack heldItem = player.getItemInHand(hand);
+        if (heldItem.getItem() instanceof DyeItem dyeItem) {
+            DyeColor dyeColor = dyeItem.getDyeColor();
+            if (dyeColor != this.color) {
+                if (world.isClientSide)
+                    return InteractionResult.SUCCESS;
+                BlockState newState = CMSBlocks.getSeatByColor(dyeColor).getDefaultState();
+                if (state.hasProperty(FACING))
+                    newState = newState.setValue(FACING, state.getValue(FACING));
+                if (state.hasProperty(WATERLOGGED))
+                    newState = newState.setValue(WATERLOGGED, state.getValue(WATERLOGGED));
+                world.setBlockAndUpdate(pos, newState);
+                if (!player.isCreative())
+                    heldItem.shrink(1);
+                return InteractionResult.SUCCESS;
+            }
+            return InteractionResult.PASS;
+        }
+        return super.use(state, world, pos, player, hand, result);
     }
 
     @Override
@@ -37,7 +65,6 @@ public abstract class ModernSeatBlockBase extends DirectionalSeatBlock implement
     public BlockState getStateForPlacement(BlockPlaceContext context) {
         return this.defaultBlockState().setValue(FACING, context.getHorizontalDirection().getOpposite());
     }
-
 
     public abstract VoxelShape shape();
 

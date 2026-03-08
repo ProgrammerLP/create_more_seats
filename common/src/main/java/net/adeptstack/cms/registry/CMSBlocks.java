@@ -55,5 +55,26 @@ public class CMSBlocks {
     public static final BlockEntry<FlatModernSeatBlock> YELLOW_MODERN_SEAT =
             CMSBuilderTransformer.ModernSeatBlock(MapColor.COLOR_YELLOW, DyeColor.YELLOW);
 
+    public static BlockEntry<FlatModernSeatBlock> getSeatByColor(DyeColor color) {
+        return switch (color) {
+            case BLACK -> BLACK_MODERN_SEAT;
+            case BLUE -> BLUE_MODERN_SEAT;
+            case BROWN -> BROWN_MODERN_SEAT;
+            case CYAN -> CYAN_MODERN_SEAT;
+            case GRAY -> GRAY_MODERN_SEAT;
+            case GREEN -> GREEN_MODERN_SEAT;
+            case LIGHT_BLUE -> LIGHTBLUE_MODERN_SEAT;
+            case LIGHT_GRAY -> LIGHTGRAY_MODERN_SEAT;
+            case LIME -> LIME_MODERN_SEAT;
+            case MAGENTA -> MAGENTA_MODERN_SEAT;
+            case ORANGE -> ORANGE_MODERN_SEAT;
+            case PINK -> PINK_MODERN_SEAT;
+            case PURPLE -> PURPLE_MODERN_SEAT;
+            case RED -> RED_MODERN_SEAT;
+            case WHITE -> WHITE_MODERN_SEAT;
+            case YELLOW -> YELLOW_MODERN_SEAT;
+        };
+    }
+
     public static void register() {}
 }
