@@ -1,0 +1,21 @@
+{
+  "replace": false,
+  "values": [
+    "cms:black_modern_seat",
+    "cms:blue_modern_seat",
+    "cms:brown_modern_seat",
+    "cms:cyan_modern_seat",
+    "cms:gray_modern_seat",
+    "cms:green_modern_seat",
+    "cms:light_blue_modern_seat",
+    "cms:light_gray_modern_seat",
+    "cms:lime_modern_seat",
+    "cms:magenta_modern_seat",
+    "cms:orange_modern_seat",
+    "cms:pink_modern_seat",
+    "cms:purple_modern_seat",
+    "cms:red_modern_seat",
+    "cms:white_modern_seat",
+    "cms:yellow_modern_seat"
+  ]
+}
