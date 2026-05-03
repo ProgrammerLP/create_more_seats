@@ -1,0 +1,19 @@
+﻿{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "W",
+    "S"
+  ],
+  "key": {
+    "W": {
+      "item": "minecraft:light_gray_wool"
+    },
+    "S": {
+      "item": "minecraft:iron_nugget"
+    }
+  },
+  "result": {
+    "item": "cms:light_gray_floor_chair",
+    "count": 2
+  }
+}

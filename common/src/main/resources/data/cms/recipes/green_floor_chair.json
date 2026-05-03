@@ -1,0 +1,19 @@
+﻿{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "W",
+    "S"
+  ],
+  "key": {
+    "W": {
+      "item": "minecraft:green_wool"
+    },
+    "S": {
+      "item": "minecraft:iron_nugget"
+    }
+  },
+  "result": {
+    "item": "cms:green_floor_chair",
+    "count": 2
+  }
+}
