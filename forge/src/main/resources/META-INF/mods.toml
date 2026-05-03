@@ -7,7 +7,7 @@ license = "AGPL-3"
 modId = "cms"
 version = "${version}"
 displayName = "Create More Seats"
-authors = "ProgrammerLP"
+authors = "Adeptstack - ProgrammerLP"
 description = '''
 Mod that adds 2 types of modern seats for trains or similiar.
 '''
