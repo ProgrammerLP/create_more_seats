@@ -57,7 +57,7 @@ public class FloorModernSeatBlock extends ModernSeatBlockBase {
                 if (neighborState.isFaceSturdy(level, neighborPos, direction.getOpposite())) {
                     return true;
                 }
-                if (!(neighborState.getBlock() instanceof FlatModernSeatBlock)) {
+                if (!(neighborState.getBlock() instanceof FlatModernSeatBlock) && !(neighborState.getBlock() instanceof FloorModernSeatBlock)) {
                     break;
                 }
             }
