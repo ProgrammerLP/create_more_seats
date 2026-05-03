@@ -9,6 +9,7 @@ import com.tterrag.registrate.builders.BlockBuilder;
 import com.tterrag.registrate.util.entry.BlockEntry;
 import com.tterrag.registrate.util.nullness.NonNullUnaryOperator;
 import net.adeptstack.cms.blocks.FlatModernSeatBlock;
+import net.adeptstack.cms.blocks.FloorModernSeatBlock;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.item.DyeColor;
@@ -43,6 +44,31 @@ public class CMSBuilderTransformer {
                 .properties(p -> p.sound(SoundType.METAL).mapColor(colour))
                 .addLayer(() -> RenderType::translucent)
                 .transform(modernSeatBlock())
+                .properties(BlockBehaviour.Properties::noOcclusion)
+                .register();
+    }
+
+    //Floor Chairs
+    public static <B extends FloorModernSeatBlock, P> NonNullUnaryOperator<BlockBuilder<B, P>> modernFloorSeatBlock() {
+        return b -> b.initialProperties(SharedProperties::softMetal)
+                .properties(p -> p.strength(3.0F, 6.0F))
+                .transform(pickaxeOnly())
+                .onRegister(interactionBehaviour(new SeatInteractionBehaviour()))
+                .onRegister(movementBehaviour(new SeatMovementBehaviour()))
+                .tag(AllTags.AllBlockTags.SEATS.tag)
+                .item()
+                .tag(AllTags.AllItemTags.SEATS.tag)
+                .tab(CMSTabs.CMS_TAB.getKey())
+                .onRegisterAfter(Registries.ITEM, v -> ItemDescription.useKey(v, "block.cms.modern_seat"))
+                .build();
+    }
+
+    public static BlockEntry<FloorModernSeatBlock> ModernFloorSeatBlock (MapColor colour, DyeColor color) {
+        return REGISTRATE.block(color.getSerializedName() + "_floor_chair", p -> new FloorModernSeatBlock(p, color))
+                .initialProperties(SharedProperties::softMetal)
+                .properties(p -> p.sound(SoundType.METAL).mapColor(colour))
+                .addLayer(() -> RenderType::translucent)
+                .transform(modernFloorSeatBlock())
                 .properties(BlockBehaviour.Properties::noOcclusion)
                 .register();
     }
