@@ -93,9 +93,10 @@ public abstract class ModernSeatBlockBase extends DirectionalSeatBlock implement
     public VoxelShape getShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context) {
         return switch(state.getValue(FACING)) {
             case NORTH -> shape();
-            case SOUTH -> Utils.rotateShape(Direction.NORTH, Direction.WEST, shape());
-            case WEST -> Utils.rotateShape(Direction.NORTH, Direction.EAST, shape());
-            default -> Utils.rotateShape(Direction.NORTH, Direction.SOUTH, shape());
+            case SOUTH -> Utils.rotateShape(Direction.NORTH, Direction.SOUTH, shape());
+            case WEST -> Utils.rotateShape(Direction.NORTH, Direction.WEST, shape());
+            case EAST -> Utils.rotateShape(Direction.NORTH, Direction.EAST, shape());
+            default -> shape();
         };
     }
 

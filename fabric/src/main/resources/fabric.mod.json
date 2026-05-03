@@ -3,7 +3,7 @@
   "id": "cms",
   "version": "${version}",
   "name": "Create More Seats",
-  "description": "This is an example description! Tell everyone what your mod is about!",
+  "description": "Mod that adds 2 types of modern seats for trains or similiar.",
   "authors": [
     "ProgrammerLP"
   ],
@@ -11,8 +11,8 @@
     "homepage": "https://fabricmc.net/",
     "sources": "https://github.com/FabricMC/fabric-example-mod"
   },
-  "license": "CC0-1.0",
-  "icon": "assets/cms/icon.png",
+  "license": "AGPL-3",
+  "icon": "cms_logo.png",
   "environment": "*",
   "entrypoints": {
     "main": [

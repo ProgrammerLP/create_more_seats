@@ -1,7 +1,7 @@
 modLoader = "javafml"
 loaderVersion = "[47,)"
-#issueTrackerURL = ""
-license = "Insert License Here"
+issueTrackerURL = "https://github.com/ProgrammerLP/create-more-seats/issues"
+license = "AGPL-3"
 
 [[mods]]
 modId = "cms"
@@ -9,9 +9,9 @@ version = "${version}"
 displayName = "Create More Seats"
 authors = "ProgrammerLP"
 description = '''
-This is an example description! Tell everyone what your mod is about!
+Mod that adds 2 types of modern seats for trains or similiar.
 '''
-#logoFile = ""
+logoFile = "cms_logo.png"
 
 [[dependencies.cms]]
 modId = "forge"

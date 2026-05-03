@@ -84,10 +84,9 @@ public class FloorModernSeatBlock extends ModernSeatBlockBase {
         Direction facing = state.getValue(FACING);
         return switch(facing) {
             case NORTH -> baseShape;
-            case SOUTH -> net.adeptstack.cms.Utils.rotateShape(Direction.NORTH, Direction.SOUTH, baseShape);
-            case WEST -> net.adeptstack.cms.Utils.rotateShape(Direction.NORTH, Direction.WEST, baseShape);
-            case EAST -> net.adeptstack.cms.Utils.rotateShape(Direction.NORTH, Direction.EAST, baseShape);
-            default -> baseShape;
+            case SOUTH -> net.adeptstack.cms.Utils.rotateShape(Direction.NORTH, Direction.WEST, baseShape);
+            case WEST -> net.adeptstack.cms.Utils.rotateShape(Direction.NORTH, Direction.EAST, baseShape);
+            default -> net.adeptstack.cms.Utils.rotateShape(Direction.NORTH, Direction.SOUTH, baseShape);
         };
     }
 }
