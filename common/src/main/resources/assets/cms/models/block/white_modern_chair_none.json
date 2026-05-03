@@ -3,7 +3,8 @@
 	"ambientocclusion": false,
 	"textures": {
 		"top": "cms:block/modern_chair/top_white",
-		"side": "cms:block/modern_chair/side_white"
+		"side": "cms:block/modern_chair/side_white",
+		"particle": "cms:block/modern_chair/side_white"
 	},
 	"elements": [
 		{
