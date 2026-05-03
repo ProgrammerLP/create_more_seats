@@ -41,7 +41,7 @@ public abstract class ModernSeatBlockBase extends DirectionalSeatBlock implement
             if (dyeColor != this.color) {
                 if (world.isClientSide)
                     return InteractionResult.SUCCESS;
-                BlockState newState = CMSBlocks.getSeatByColor(dyeColor).getDefaultState();
+                BlockState newState = state.getBlock() instanceof FlatModernSeatBlock ? CMSBlocks.getSeatByColor(dyeColor).getDefaultState() : CMSBlocks.getFloorSeatByColor(dyeColor).getDefaultState();
                 if (state.hasProperty(FACING))
                     newState = newState.setValue(FACING, state.getValue(FACING));
                 if (state.hasProperty(WATERLOGGED))

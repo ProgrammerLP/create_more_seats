@@ -66,7 +66,7 @@ public class CMSBuilderTransformer {
     public static BlockEntry<FloorModernSeatBlock> ModernFloorSeatBlock (MapColor colour, DyeColor color) {
         return REGISTRATE.block(color.getSerializedName() + "_floor_chair", p -> new FloorModernSeatBlock(p, color))
                 .initialProperties(SharedProperties::softMetal)
-                .properties(p -> p.sound(SoundType.METAL).mapColor(colour))
+                .properties(p -> p.sound(SoundType.METAL).mapColor(colour).noOcclusion())
                 .addLayer(() -> RenderType::translucent)
                 .transform(modernFloorSeatBlock())
                 .properties(BlockBehaviour.Properties::noOcclusion)
