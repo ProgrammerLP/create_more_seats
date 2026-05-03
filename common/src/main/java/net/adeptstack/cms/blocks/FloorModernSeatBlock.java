@@ -81,11 +81,13 @@ public class FloorModernSeatBlock extends ModernSeatBlockBase {
     @Override
     public VoxelShape getShape(BlockState state, net.minecraft.world.level.BlockGetter level, BlockPos pos, net.minecraft.world.phys.shapes.CollisionContext context) {
         VoxelShape baseShape = state.getValue(SUPPORT) ? SHAPE_SUPPORT : SHAPE;
-        return switch(state.getValue(FACING)) {
+        Direction facing = state.getValue(FACING);
+        return switch(facing) {
             case NORTH -> baseShape;
-            case SOUTH -> net.adeptstack.cms.Utils.rotateShape(Direction.NORTH, Direction.WEST, baseShape);
-            case WEST -> net.adeptstack.cms.Utils.rotateShape(Direction.NORTH, Direction.EAST, baseShape);
-            default -> net.adeptstack.cms.Utils.rotateShape(Direction.NORTH, Direction.SOUTH, baseShape);
+            case SOUTH -> net.adeptstack.cms.Utils.rotateShape(Direction.NORTH, Direction.SOUTH, baseShape);
+            case WEST -> net.adeptstack.cms.Utils.rotateShape(Direction.NORTH, Direction.WEST, baseShape);
+            case EAST -> net.adeptstack.cms.Utils.rotateShape(Direction.NORTH, Direction.EAST, baseShape);
+            default -> baseShape;
         };
     }
 }
