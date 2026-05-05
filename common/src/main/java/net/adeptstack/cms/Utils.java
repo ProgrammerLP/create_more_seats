@@ -11,7 +11,7 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 public class Utils {
 
     public static ResourceLocation id(String ns, String path) {
-        return new ResourceLocation(ns, path);
+        return ResourceLocation.fromNamespaceAndPath(ns, path);
     }
 
     public static DyeColor colorFromItem(ItemStack stack) {

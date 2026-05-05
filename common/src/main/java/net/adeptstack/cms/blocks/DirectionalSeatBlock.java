@@ -44,7 +44,7 @@ public class DirectionalSeatBlock extends SeatBlock {
         super.createBlockStateDefinition(builder.add(FACING));
     }
 
-    public InteractionResult use(BlockState state, Level world, BlockPos pos, Player player, InteractionHand hand, BlockHitResult result) {
-        return super.use(state, world, pos, player, hand, result);
+    public InteractionResult useWithoutItem(BlockState state, Level world, BlockPos pos, Player player, BlockHitResult result) {
+        return super.useWithoutItem(state, world, pos, player, result);
     }
 }

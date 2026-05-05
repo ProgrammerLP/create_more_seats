@@ -22,6 +22,7 @@ import static com.simibubi.create.api.behaviour.movement.MovementBehaviour.movem
 import static com.simibubi.create.foundation.data.TagGen.pickaxeOnly;
 import static net.adeptstack.CMSMod.REGISTRATE;
 
+@SuppressWarnings("removal")
 public class CMSBuilderTransformer {
 
     public static <B extends FlatModernSeatBlock, P> NonNullUnaryOperator<BlockBuilder<B, P>> modernSeatBlock() {
@@ -33,7 +34,6 @@ public class CMSBuilderTransformer {
                 .tag(AllTags.AllBlockTags.SEATS.tag)
                 .item()
                 .tag(AllTags.AllItemTags.SEATS.tag)
-                .tab(CMSTabs.CMS_TAB.getKey())
                 .onRegisterAfter(Registries.ITEM, v -> ItemDescription.useKey(v, "block.cms.modern_seat"))
                 .build();
     }
@@ -58,7 +58,6 @@ public class CMSBuilderTransformer {
                 .tag(AllTags.AllBlockTags.SEATS.tag)
                 .item()
                 .tag(AllTags.AllItemTags.SEATS.tag)
-                .tab(CMSTabs.CMS_TAB.getKey())
                 .onRegisterAfter(Registries.ITEM, v -> ItemDescription.useKey(v, "block.cms.modern_seat"))
                 .build();
     }

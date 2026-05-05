@@ -7,6 +7,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
+import net.minecraft.world.ItemInteractionResult;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
@@ -34,13 +35,13 @@ public abstract class ModernSeatBlockBase extends DirectionalSeatBlock implement
     }
 
     @Override
-    public InteractionResult use(BlockState state, Level world, BlockPos pos, Player player, InteractionHand hand, BlockHitResult result) {
+    public ItemInteractionResult useItemOn(ItemStack stack, BlockState state, Level world, BlockPos pos, Player player, InteractionHand hand, BlockHitResult result) {
         ItemStack heldItem = player.getItemInHand(hand);
         if (heldItem.getItem() instanceof DyeItem dyeItem) {
             DyeColor dyeColor = dyeItem.getDyeColor();
             if (dyeColor != this.color) {
                 if (world.isClientSide)
-                    return InteractionResult.SUCCESS;
+                    return ItemInteractionResult.SUCCESS;
                 BlockState newState = state.getBlock() instanceof FlatModernSeatBlock ? CMSBlocks.getSeatByColor(dyeColor).getDefaultState() : CMSBlocks.getFloorSeatByColor(dyeColor).getDefaultState();
                 if (state.hasProperty(FACING))
                     newState = newState.setValue(FACING, state.getValue(FACING));
@@ -49,11 +50,11 @@ public abstract class ModernSeatBlockBase extends DirectionalSeatBlock implement
                 world.setBlockAndUpdate(pos, newState);
                 if (!player.isCreative())
                     heldItem.shrink(1);
-                return InteractionResult.SUCCESS;
+                return ItemInteractionResult.SUCCESS;
             }
-            return InteractionResult.PASS;
+            return ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
         }
-        return super.use(state, world, pos, player, hand, result);
+        return super.useItemOn(stack, state, world, pos, player, hand, result);
     }
 
     @Override

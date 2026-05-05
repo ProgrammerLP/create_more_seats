@@ -15,10 +15,10 @@ public class CMSEntities {
         MODERN_SEAT = () -> CMSMod.REGISTRATE
                 .<ModernSeatEntity>entity("modern_seat", ModernSeatEntity::new, MobCategory.MISC)
                 .properties(b -> b.fireImmune()
-                        .dimensions(EntityDimensions.fixed(0.25f, 0.85f))
-                        .trackRangeChunks(5)
-                        .trackedUpdateRate(Integer.MAX_VALUE)
-                        .forceTrackedVelocityUpdates(false)
+                        .sized(0.25f, 0.85f)
+                        .setTrackingRange(5)
+                        .setUpdateInterval(Integer.MAX_VALUE)
+                        .setShouldReceiveVelocityUpdates(false)
                 )
                 .renderer(() -> ModernSeatEntity.Render::new)
                 .register();
