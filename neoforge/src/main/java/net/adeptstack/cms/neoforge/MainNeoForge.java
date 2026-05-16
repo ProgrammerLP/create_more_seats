@@ -1,4 +1,4 @@
-package net.adeptstack.neoforge;
+package net.adeptstack.cms.neoforge;
 
 
 

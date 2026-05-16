@@ -1,4 +1,4 @@
-package net.adeptstack.neoforge.client;
+package net.adeptstack.cms.neoforge.client;
 
 
 import net.neoforged.api.distmarker.Dist;
