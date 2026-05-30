@@ -20,7 +20,7 @@ import net.minecraft.world.level.material.MapColor;
 import static com.simibubi.create.api.behaviour.interaction.MovingInteractionBehaviour.interactionBehaviour;
 import static com.simibubi.create.api.behaviour.movement.MovementBehaviour.movementBehaviour;
 import static com.simibubi.create.foundation.data.TagGen.pickaxeOnly;
-import static net.adeptstack.CMSMod.REGISTRATE;
+import static net.adeptstack.cms.CMSMod.REGISTRATE;
 
 @SuppressWarnings("removal")
 public class CMSBuilderTransformer {

@@ -2,7 +2,7 @@ package net.adeptstack.cms.neoforge;
 
 
 
-import net.adeptstack.CMSMod;
+import net.adeptstack.cms.CMSMod;
 import net.neoforged.fml.ModContainer;
 import net.neoforged.fml.ModLoadingContext;
 import net.neoforged.fml.common.Mod;

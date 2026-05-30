@@ -1,9 +1,8 @@
 package net.adeptstack.cms.registry;
 
 import com.tterrag.registrate.util.entry.EntityEntry;
-import net.adeptstack.CMSMod;
+import net.adeptstack.cms.CMSMod;
 import net.adeptstack.cms.entities.ModernSeatEntity;
-import net.minecraft.world.entity.EntityDimensions;
 import net.minecraft.world.entity.MobCategory;
 
 import java.util.function.Supplier;
