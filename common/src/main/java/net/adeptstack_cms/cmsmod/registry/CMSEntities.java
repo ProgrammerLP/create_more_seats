@@ -1,8 +1,8 @@
-package net.adeptstack.cms.registry;
+package net.adeptstack_cms.cmsmod.registry;
 
 import com.tterrag.registrate.util.entry.EntityEntry;
-import net.adeptstack.cms.CMSMod;
-import net.adeptstack.cms.entities.ModernSeatEntity;
+import net.adeptstack_cms.cmsmod.CMSMod;
+import net.adeptstack_cms.cmsmod.entities.ModernSeatEntity;
 import net.minecraft.world.entity.EntityDimensions;
 import net.minecraft.world.entity.MobCategory;
 

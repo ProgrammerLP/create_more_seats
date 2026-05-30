@@ -1,8 +1,8 @@
-package net.adeptstack.cms.registry;
+package net.adeptstack_cms.cmsmod.registry;
 
 import com.tterrag.registrate.util.entry.BlockEntry;
-import net.adeptstack.cms.blocks.FlatModernSeatBlock;
-import net.adeptstack.cms.blocks.FloorModernSeatBlock;
+import net.adeptstack_cms.cmsmod.blocks.FlatModernSeatBlock;
+import net.adeptstack_cms.cmsmod.blocks.FloorModernSeatBlock;
 import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.level.material.MapColor;
 

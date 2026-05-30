@@ -1,4 +1,4 @@
-package net.adeptstack.cms.blocks;
+package net.adeptstack_cms.cmsmod.blocks;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -8,6 +8,7 @@ import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
@@ -15,12 +16,12 @@ import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
-public class FlatModernSeatBlock extends ModernSeatBlockBase {
+public class FloorModernSeatBlock extends ModernSeatBlockBase {
     public static final BooleanProperty SUPPORT = BooleanProperty.create("support");
-    private static final VoxelShape SHAPE = Shapes.or(Block.box(0, 5, 0, 16, 8, 16), Block.box(0,8,9,16,16,16), Block.box(6,0,6,10,5,10));
-    private static final VoxelShape SHAPE_SUPPORT = Shapes.or(Block.box(0, 5, 0, 16, 8, 16), Block.box(0,8,9,16,16,16));
+    private static final VoxelShape SHAPE = Shapes.or(Block.box(0, 3, 0, 16, 8, 16), Block.box(0,8,9,16,16,16), Block.box(6,0,6,10,3,10));
+    private static final VoxelShape SHAPE_SUPPORT = Shapes.or(Block.box(0, 3, 0, 16, 8, 16), Block.box(0,8,9,16,16,16));
 
-    public FlatModernSeatBlock(Properties properties, DyeColor color) {
+    public FloorModernSeatBlock(BlockBehaviour.Properties properties, DyeColor color) {
         super(properties, color);
         registerDefaultState(defaultBlockState().setValue(SUPPORT, false));
     }
@@ -83,9 +84,9 @@ public class FlatModernSeatBlock extends ModernSeatBlockBase {
         Direction facing = state.getValue(FACING);
         return switch(facing) {
             case NORTH -> baseShape;
-            case SOUTH -> net.adeptstack.cms.Utils.rotateShape(Direction.NORTH, Direction.WEST, baseShape);
-            case WEST -> net.adeptstack.cms.Utils.rotateShape(Direction.NORTH, Direction.EAST, baseShape);
-            default -> net.adeptstack.cms.Utils.rotateShape(Direction.NORTH, Direction.SOUTH, baseShape);
+            case SOUTH -> net.adeptstack_cms.cmsmod.Utils.rotateShape(Direction.NORTH, Direction.WEST, baseShape);
+            case WEST -> net.adeptstack_cms.cmsmod.Utils.rotateShape(Direction.NORTH, Direction.EAST, baseShape);
+            default -> net.adeptstack_cms.cmsmod.Utils.rotateShape(Direction.NORTH, Direction.SOUTH, baseShape);
         };
     }
 }

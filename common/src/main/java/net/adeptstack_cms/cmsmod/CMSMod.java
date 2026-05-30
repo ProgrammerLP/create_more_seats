@@ -1,9 +1,9 @@
-package net.adeptstack.cms;
+package net.adeptstack_cms.cmsmod;
 
 import com.simibubi.create.foundation.data.CreateRegistrate;
-import net.adeptstack.cms.registry.CMSBlocks;
-import net.adeptstack.cms.registry.CMSEntities;
-import net.adeptstack.cms.registry.CMSTabs;
+import net.adeptstack_cms.cmsmod.registry.CMSBlocks;
+import net.adeptstack_cms.cmsmod.registry.CMSEntities;
+import net.adeptstack_cms.cmsmod.registry.CMSTabs;
 
 public final class CMSMod {
     public static final String MOD_ID = "cms";

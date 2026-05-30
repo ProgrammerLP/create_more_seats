@@ -1,4 +1,4 @@
-package net.adeptstack.cms;
+package net.adeptstack_cms.cmsmod;
 
 import net.minecraft.core.Direction;
 import net.minecraft.resources.ResourceLocation;

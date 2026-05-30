@@ -1,8 +1,8 @@
-package net.adeptstack.cms.fabric;
+package net.adeptstack_cms.cmsmod.fabric;
 
 import net.fabricmc.api.ModInitializer;
 
-import net.adeptstack.cms.CMSMod;
+import net.adeptstack_cms.cmsmod.CMSMod;
 
 public final class CMSModFabric implements ModInitializer {
     @Override

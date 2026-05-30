@@ -1,4 +1,4 @@
-package net.adeptstack.cms.blocks;
+package net.adeptstack_cms.cmsmod.blocks;
 
 import com.simibubi.create.content.contraptions.actors.seat.SeatBlock;
 import net.minecraft.core.BlockPos;

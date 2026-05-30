@@ -1,4 +1,4 @@
-package net.adeptstack.cms.fabric.client;
+package net.adeptstack_cms.cmsmod.fabric.client;
 
 import net.fabricmc.api.ClientModInitializer;
 

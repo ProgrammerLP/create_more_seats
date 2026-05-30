@@ -1,4 +1,4 @@
-package net.adeptstack.cms.registry;
+package net.adeptstack_cms.cmsmod.registry;
 
 import com.simibubi.create.AllTags;
 import com.simibubi.create.content.contraptions.actors.seat.SeatInteractionBehaviour;
@@ -8,8 +8,8 @@ import com.simibubi.create.foundation.item.ItemDescription;
 import com.tterrag.registrate.builders.BlockBuilder;
 import com.tterrag.registrate.util.entry.BlockEntry;
 import com.tterrag.registrate.util.nullness.NonNullUnaryOperator;
-import net.adeptstack.cms.blocks.FlatModernSeatBlock;
-import net.adeptstack.cms.blocks.FloorModernSeatBlock;
+import net.adeptstack_cms.cmsmod.blocks.FlatModernSeatBlock;
+import net.adeptstack_cms.cmsmod.blocks.FloorModernSeatBlock;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.item.DyeColor;
@@ -20,7 +20,7 @@ import net.minecraft.world.level.material.MapColor;
 import static com.simibubi.create.api.behaviour.interaction.MovingInteractionBehaviour.interactionBehaviour;
 import static com.simibubi.create.api.behaviour.movement.MovementBehaviour.movementBehaviour;
 import static com.simibubi.create.foundation.data.TagGen.pickaxeOnly;
-import static net.adeptstack.cms.CMSMod.REGISTRATE;
+import static net.adeptstack_cms.cmsmod.CMSMod.REGISTRATE;
 
 public class CMSBuilderTransformer {
 

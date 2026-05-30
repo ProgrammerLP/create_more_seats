@@ -1,8 +1,8 @@
-package net.adeptstack.cms.blocks;
+package net.adeptstack_cms.cmsmod.blocks;
 
 import com.simibubi.create.foundation.block.ProperWaterloggedBlock;
-import net.adeptstack.cms.Utils;
-import net.adeptstack.cms.registry.CMSBlocks;
+import net.adeptstack_cms.cmsmod.Utils;
+import net.adeptstack_cms.cmsmod.registry.CMSBlocks;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.InteractionHand;

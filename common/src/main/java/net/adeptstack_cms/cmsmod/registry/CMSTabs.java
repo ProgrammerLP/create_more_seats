@@ -1,4 +1,4 @@
-package net.adeptstack.cms.registry;
+package net.adeptstack_cms.cmsmod.registry;
 
 import dev.architectury.registry.CreativeTabRegistry;
 import dev.architectury.registry.registries.DeferredRegister;
@@ -9,7 +9,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.ItemStack;
 
-import static net.adeptstack.cms.CMSMod.MOD_ID;
+import static net.adeptstack_cms.cmsmod.CMSMod.MOD_ID;
 
 public class CMSTabs {
     public static final DeferredRegister<CreativeModeTab> CREATIVE_MODE_TABS = DeferredRegister.create(MOD_ID, Registries.CREATIVE_MODE_TAB);

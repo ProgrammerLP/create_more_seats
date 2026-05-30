@@ -1,10 +1,10 @@
-package net.adeptstack.cms.forge;
+package net.adeptstack_cms.cmsmod.forge;
 
 import dev.architectury.platform.forge.EventBuses;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 
-import net.adeptstack.cms.CMSMod;
+import net.adeptstack_cms.cmsmod.CMSMod;
 
 @SuppressWarnings("removal")
 @Mod(CMSMod.MOD_ID)

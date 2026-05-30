@@ -1,4 +1,4 @@
-package net.adeptstack.cms.entities;
+package net.adeptstack_cms.cmsmod.entities;
 
 import com.simibubi.create.content.contraptions.actors.seat.SeatEntity;
 import net.minecraft.client.renderer.culling.Frustum;

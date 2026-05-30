@@ -1,4 +1,4 @@
-﻿{
+{
     "variants":  {
                      "facing=south,support=true,waterlogged=true":  {
                                                                         "model":  "cms:block/green_modern_chair_none",

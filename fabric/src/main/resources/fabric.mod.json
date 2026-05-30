@@ -16,10 +16,10 @@
   "environment": "*",
   "entrypoints": {
     "main": [
-      "net.adeptstack.fabric.CMSModFabric"
+      "net.adeptstack_cms.cmsmod.fabric.CMSModFabric"
     ],
     "client": [
-      "net.adeptstack.fabric.client.CMSModFabricClient"
+      "net.adeptstack_cms.cmsmod.fabric.client.CMSModFabricClient"
     ]
   },
   "mixins": [
