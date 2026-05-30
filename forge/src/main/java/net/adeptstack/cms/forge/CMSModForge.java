@@ -4,7 +4,7 @@ import dev.architectury.platform.forge.EventBuses;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 
-import net.adeptstack.CMSMod;
+import net.adeptstack.cms.CMSMod;
 
 @SuppressWarnings("removal")
 @Mod(CMSMod.MOD_ID)

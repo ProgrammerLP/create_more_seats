@@ -1,4 +1,4 @@
-package net.adeptstack;
+package net.adeptstack.cms;
 
 import com.simibubi.create.foundation.data.CreateRegistrate;
 import net.adeptstack.cms.registry.CMSBlocks;
