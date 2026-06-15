@@ -1,4 +1,4 @@
-﻿{
+{
   "type": "minecraft:crafting_shaped",
   "pattern": [
     "W",
@@ -13,7 +13,7 @@
     }
   },
   "result": {
-    "item": "cms:blue_modern_seat",
+    "id": "cms:blue_modern_seat",
     "count": 2
   }
 }
