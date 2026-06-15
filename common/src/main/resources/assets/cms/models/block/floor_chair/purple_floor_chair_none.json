@@ -1,13 +1,11 @@
 {
-	"format_version": "1.21.11",
 	"credit": "Made with Blockbench",
 	"ambientocclusion": false,
-	"render_type": "cutout",
 	"textures": {
 		"0": "cms:block/floor_chair/bottom",
 		"particle": "cms:block/floor_chair/bottom",
 		"top": "cms:block/floor_chair/top_purple",
-		"side_top": "cms:block/floor_chair/side_top"
+		"side_top": "cms:block/floor_chair/side_top_purple"
 	},
 	"elements": [
 		{
@@ -16,25 +14,25 @@
 			"to": [16.02, 8, 14.01],
 			"rotation": {"angle": 0, "axis": "y", "origin": [0, -5, 16]},
 			"faces": {
-				"north": {"uv": [0, 0, 16, 5], "rotation": 180, "texture": "#top"},
-				"east": {"uv": [0, 8, 14, 13], "texture": "#side_top"},
-				"south": {"uv": [0, 8, 16, 13], "texture": "#0"},
-				"west": {"uv": [0, 8, 14, 13], "texture": "#side_top"},
-				"up": {"uv": [0, 2, 16, 16], "rotation": 180, "texture": "#top"},
+				"north": {"uv": [0, 11, 16, 16], "texture": "#side_top"},
+				"east": {"uv": [16, 6, 2, 11], "texture": "#side_top"},
+				"south": {"uv": [0, 0, 16, 5], "texture": "#0"},
+				"west": {"uv": [2, 6, 16, 11], "texture": "#side_top"},
+				"up": {"uv": [0, 0, 16, 14], "rotation": 180, "texture": "#top"},
 				"down": {"uv": [0, 0, 14, 16], "rotation": 90, "texture": "#0"}
 			}
 		},
 		{
 			"name": "Back",
-			"from": [-0.01, 3.5, 9.5],
-			"to": [16.01, 19.5, 14.5],
+			"from": [-0.01, 3.5, 9.2],
+			"to": [16.01, 19.5, 14.2],
 			"rotation": {"angle": 22.5, "axis": "x", "origin": [8, 8, 15]},
 			"faces": {
 				"north": {"uv": [0, 0, 16, 16], "texture": "#top"},
 				"east": {"uv": [0, 5, 16, 0], "rotation": 270, "texture": "#side_top"},
 				"south": {"uv": [0, 0, 16, 16], "texture": "#0"},
 				"west": {"uv": [0, 5, 16, 0], "rotation": 90, "texture": "#side_top"},
-				"up": {"uv": [0, 11, 16, 16], "texture": "#side_top"},
+				"up": {"uv": [0, 0, 16, 5], "texture": "#side_top"},
 				"down": {"uv": [0, 0, 16, 8], "texture": "#missing"}
 			}
 		}
@@ -63,17 +61,17 @@
 			"scale": [0.3, 0.3, 0.3]
 		},
 		"gui": {
-			"rotation": [30, -135, 0],
-			"translation": [1.25, -1.5, 0],
-			"scale": [0.62, 0.6, 0.62]
+			"rotation": [30, 225, 0],
+			"translation": [0.5, -2, 0],
+			"scale": [0.6, 0.6, 0.6]
 		},
 		"head": {
 			"rotation": [1, 0, 0],
 			"translation": [0, 1, 0]
 		},
 		"fixed": {
-			"rotation": [0, 90, 0],
-			"translation": [-1.25, -3.5, 0.5],
+			"rotation": [0, 60, 0],
+			"translation": [0, -2.5, -4.75],
 			"scale": [0.6, 0.6, 0.6]
 		}
 	},
@@ -81,7 +79,6 @@
 		{
 			"name": "Chair",
 			"origin": [8, 8, 8],
-			"scope": 0,
 			"color": 0,
 			"children": [0, 1]
 		}
