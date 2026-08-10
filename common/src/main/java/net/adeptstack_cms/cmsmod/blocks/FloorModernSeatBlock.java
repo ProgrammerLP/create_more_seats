@@ -16,10 +16,27 @@ import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
+import java.util.Map;
+
 public class FloorModernSeatBlock extends ModernSeatBlockBase {
     public static final BooleanProperty SUPPORT = BooleanProperty.create("support");
     private static final VoxelShape SHAPE = Shapes.or(Block.box(0, 3, 0, 16, 8, 16), Block.box(0,8,9,16,16,16), Block.box(6,0,6,10,3,10));
     private static final VoxelShape SHAPE_SUPPORT = Shapes.or(Block.box(0, 3, 0, 16, 8, 16), Block.box(0,8,9,16,16,16));
+
+    //Hasha Update - Added new function to compute direction once at class-load instead of every tick in getShape().
+    private static final Map<Direction, VoxelShape> SHAPES_BY_FACING = buildShapeLookup(SHAPE);
+    private static final Map<Direction, VoxelShape> SHAPES_SUPPORT_BY_FACING = buildShapeLookup(SHAPE_SUPPORT);
+    private static Map<Direction, VoxelShape> buildShapeLookup (VoxelShape baseShape)
+    {
+        Map<Direction, VoxelShape> map = new java.util.EnumMap<>(Direction.class);
+
+        map.put(Direction.NORTH, baseShape);
+        map.put(Direction.SOUTH, net.adeptstack_cms.cmsmod.Utils.rotateShape(Direction.NORTH, Direction.WEST, baseShape));
+        map.put(Direction.WEST, net.adeptstack_cms.cmsmod.Utils.rotateShape(Direction.NORTH, Direction.EAST, baseShape));
+        map.put(Direction.EAST, net.adeptstack_cms.cmsmod.Utils.rotateShape(Direction.NORTH, Direction.SOUTH, baseShape));
+
+        return map;
+    }
 
     public FloorModernSeatBlock(BlockBehaviour.Properties properties, DyeColor color) {
         super(properties, color);
@@ -80,13 +97,7 @@ public class FloorModernSeatBlock extends ModernSeatBlockBase {
 
     @Override
     public VoxelShape getShape(BlockState state, net.minecraft.world.level.BlockGetter level, BlockPos pos, net.minecraft.world.phys.shapes.CollisionContext context) {
-        VoxelShape baseShape = state.getValue(SUPPORT) ? SHAPE_SUPPORT : SHAPE;
-        Direction facing = state.getValue(FACING);
-        return switch(facing) {
-            case NORTH -> baseShape;
-            case SOUTH -> net.adeptstack_cms.cmsmod.Utils.rotateShape(Direction.NORTH, Direction.WEST, baseShape);
-            case WEST -> net.adeptstack_cms.cmsmod.Utils.rotateShape(Direction.NORTH, Direction.EAST, baseShape);
-            default -> net.adeptstack_cms.cmsmod.Utils.rotateShape(Direction.NORTH, Direction.SOUTH, baseShape);
-        };
+        Map<Direction, VoxelShape> lookup = state.getValue(SUPPORT) ? SHAPES_SUPPORT_BY_FACING : SHAPES_BY_FACING;
+        return lookup.get(state.getValue(FACING));
     }
 }
