@@ -42,7 +42,9 @@ public class CMSBuilderTransformer {
         return REGISTRATE.block(color.getSerializedName() + "_modern_seat", p -> new FlatModernSeatBlock(p, color))
                 .initialProperties(SharedProperties::softMetal)
                 .properties(p -> p.sound(SoundType.METAL).mapColor(colour))
-                .addLayer(() -> RenderType::translucent)
+                // All chair textures are fully opaque (RGB, no alpha channel), so the solid layer is correct.
+                // The translucent layer would force per-frame quad sorting in the chunk mesh for no benefit.
+                .addLayer(() -> RenderType::solid)
                 .transform(modernSeatBlock())
                 .properties(BlockBehaviour.Properties::noOcclusion)
                 .register();
@@ -65,8 +67,10 @@ public class CMSBuilderTransformer {
     public static BlockEntry<FloorModernSeatBlock> ModernFloorSeatBlock (MapColor colour, DyeColor color) {
         return REGISTRATE.block(color.getSerializedName() + "_floor_chair", p -> new FloorModernSeatBlock(p, color))
                 .initialProperties(SharedProperties::softMetal)
-                .properties(p -> p.sound(SoundType.METAL).mapColor(colour).noOcclusion())
-                .addLayer(() -> RenderType::translucent)
+                .properties(p -> p.sound(SoundType.METAL).mapColor(colour))
+                // All chair textures are fully opaque (RGB, no alpha channel), so the solid layer is correct.
+                // The translucent layer would force per-frame quad sorting in the chunk mesh for no benefit.
+                .addLayer(() -> RenderType::solid)
                 .transform(modernFloorSeatBlock())
                 .properties(BlockBehaviour.Properties::noOcclusion)
                 .register();
