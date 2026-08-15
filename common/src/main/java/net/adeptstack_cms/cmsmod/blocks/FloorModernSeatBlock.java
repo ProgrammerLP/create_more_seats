@@ -11,7 +11,6 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
-import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
@@ -20,6 +19,8 @@ import java.util.Map;
 
 public class FloorModernSeatBlock extends ModernSeatBlockBase {
     public static final BooleanProperty SUPPORT = BooleanProperty.create("support");
+    // Avoids allocating an iterator on every support scan, which runs on placement and on every scheduled tick.
+    private static final Direction[] HORIZONTAL_DIRECTIONS = { Direction.NORTH, Direction.SOUTH, Direction.WEST, Direction.EAST };
     private static final VoxelShape SHAPE = Shapes.or(Block.box(0, 3, 0, 16, 8, 16), Block.box(0,8,9,16,16,16), Block.box(6,0,6,10,3,10));
     private static final VoxelShape SHAPE_SUPPORT = Shapes.or(Block.box(0, 3, 0, 16, 8, 16), Block.box(0,8,9,16,16,16));
 
@@ -60,16 +61,15 @@ public class FloorModernSeatBlock extends ModernSeatBlockBase {
         if (direction.getAxis().isHorizontal()) {
             level.scheduleTick(currentPos, this, 1);
         }
-        if (state.getValue(BlockStateProperties.WATERLOGGED)) {
-            level.scheduleTick(currentPos, net.minecraft.world.level.material.Fluids.WATER, net.minecraft.world.level.material.Fluids.WATER.getTickDelay(level));
-        }
+        // super (SeatBlock) already schedules the water tick via ProperWaterloggedBlock.updateWater
         return super.updateShape(state, direction, neighborState, level, currentPos, neighborPos);
     }
 
     private boolean shouldHaveSupport(LevelAccessor level, BlockPos pos) {
-        for (Direction direction : Direction.Plane.HORIZONTAL) {
+        BlockPos.MutableBlockPos neighborPos = new BlockPos.MutableBlockPos();
+        for (Direction direction : HORIZONTAL_DIRECTIONS) {
             for (int i = 1; i <= 3; i++) {
-                BlockPos neighborPos = pos.relative(direction, i);
+                neighborPos.set(pos).move(direction, i);
                 BlockState neighborState = level.getBlockState(neighborPos);
                 if (neighborState.isFaceSturdy(level, neighborPos, direction.getOpposite())) {
                     return true;
